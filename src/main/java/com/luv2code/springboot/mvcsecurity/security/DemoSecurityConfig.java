@@ -50,7 +50,9 @@ public class DemoSecurityConfig {
                                 .permitAll()
                 )
                 .logout(logout -> logout.permitAll()
-                );
+                )
+                .exceptionHandling(httpSecurityExceptionHandlingConfigurer ->
+                        httpSecurityExceptionHandlingConfigurer.accessDeniedPage("/access-denied"));
 
         return httpSecurity.build();
     }
